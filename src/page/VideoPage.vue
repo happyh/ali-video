@@ -40,7 +40,8 @@ const transcoding = {
 
 
 var options = {}
-
+// 重试3次
+var retries = 3;
 
 let instance;
 
@@ -278,6 +279,7 @@ function openSubTitle() {
 
 // 重试按钮
 function retryClick() {
+    retries = 3;
     retry.loading = true;
     getVideoInfo(artp)
 }
@@ -379,6 +381,7 @@ function closeSelector() {
     instance.play()
 }
 
+
 function getVideoInfo(call) {
     let token = user.getToken()
     if (token == null) {
@@ -418,6 +421,7 @@ function getVideoInfo(call) {
     }
     req.then(res => {
         retry.error = false;
+        Artplayer.ASPECT_RATIO = ['default', '1:1', '2:1', '4:3', '16:9','21:9'];
 
         options = {
             id: videoInfo.id,
@@ -458,10 +462,15 @@ function getVideoInfo(call) {
             instance.destroy(false)
         }
         console.log(e)
+        if(retries != 0 ){
+            retries = retries -1; 
+            getVideoInfo(call)   
+        }
+
         if (e && e + '' == 'AxiosError: Request failed with status code 429') {
             retry.text = '请稍候点击下方按钮，刷新尝试'
             retry.title = '您操作的太快了'
-        } else {
+        }else {
             retry.title = '接口问题'
             retry.text = e + '';
         }

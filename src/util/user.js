@@ -4,7 +4,6 @@ import { showError } from "../ui/util";
 import store from './store'
 import {createSessionUrl} from '../api/aliyun'
 import { ElMessageBox } from 'element-plus'
-import MD5 from './md5'
 
 function copy (obj) {
     var newobj = obj.constructor === Array ? [] : {};
@@ -20,8 +19,7 @@ function copy (obj) {
 class User {
 
     constructor() {
-        console.log(MD5("adsda12312"))
-        // console.log( SHA256().update("sada").digest())
+
         this.is_login = false
         this.vip_status = 0
         this.mid = ''
@@ -95,6 +93,13 @@ class User {
         return playerSet;
     }
 
+    // 查看用户是否已经同意 或者 配置了 获取session 所需要的浏览器名称
+    isConfigSession(){
+       let deviceName =  store.getItem("deviceName");
+       let modelName =  store.getItem("modelName");
+       return !( deviceName == '' || modelName == '')
+    }
+
     // 保存视频信息
     saveVideoInfo(id,name,progress,folderName,href,share,play_cursor){
         let videoInfo = {
@@ -127,6 +132,8 @@ class User {
         store.removeItem('LG_session_Ref')
         store.removeItem('x-device-id')
         store.removeItem('x-signature')
+        store.removeItem('deviceName')
+        store.removeItem('modelName')
     }
 
     clearAll(){
@@ -237,11 +244,12 @@ class User {
             unsafeWindow.luoGenSession(function (key,pubStr,signature,nd){
                 deviceId = nd;
                 console.log('你好,罗根！')
-
+                let deviceName = store.getItem("deviceName")
+                let modelName = store.getItem("modelName")
             
                 createSessionUrl({
-                    "deviceName": "罗根浏览器",
-                    "modelName" : "iPhone13",
+                    "deviceName": deviceName,
+                    "modelName" : modelName,
                     "refreshToken" : "71a164a40eb84a40b35c1a39d2023499",
                     "pubKey": pubStr
                 },signature,deviceId).then((res)=>{

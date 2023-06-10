@@ -232,6 +232,9 @@ onUnmounted(() => {
         <div>
             <div class="footer">
                 <div>
+                    <ElButton  type="primary" @click.stop="monkeyWindow.open('https://github.com/wyndem/ali-video', '_blank')">❤️
+                        开源地址</ElButton>
+
                     <ElButton  type="primary" @click.stop="monkeyWindow.open('https://greasyfork.org/zh-CN/scripts/458626', '_blank')">👍
                         点个赞</ElButton>
                     

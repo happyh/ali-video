@@ -1,7 +1,6 @@
 import { defineConfig,loadEnv  } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import monkey, { cdn,util } from 'vite-plugin-monkey';
-// import requireTransform from 'vite-plugin-require-transform';
 
 
 // https://vitejs.dev/config/
@@ -9,7 +8,6 @@ export default defineConfig({
   
   assetsInclude: ['**/*.html'],
   plugins: [
- 
     vue(),
     monkey({
       entry: 'src/main.js',
@@ -39,6 +37,6 @@ export default defineConfig({
           'element-plus/dist/index.css': cdn.bootcdn('','index.min.css'),
         }
       },
-    }),
+    })
   ],
 });

@@ -12,11 +12,11 @@
 
 
 
-## GitHub开源
-[https://github.com/wyndem/ali-video] (https://github.com/wyndem/ali-video)
+## 油猴地址
+https://greasyfork.org/zh-CN/scripts/458626
 
 ## 鸣谢
-开源脚手架: [vite-plugin-monkey] (https://github.com/lisonge/vite-plugin-monkey)
+开源脚手架: https://github.com/lisonge/vite-plugin-monkey
 
 
 # 说明

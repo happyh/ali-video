@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, reactive } from "vue";
+import { ref, onMounted, onUnmounted, reactive, withCtx } from "vue";
 import { monkeyWindow } from '$';
 import user from '../util/user';
 import { getDownloadUrl, shareLinkDownloadUrl } from '../api/aliyun'
@@ -54,6 +54,13 @@ function group(array, subGroupLength) {
     return newArray;
 }
 
+
+
+function updateHref(id) {
+    var $a = $(`a[data-id="${id}"]`);
+    var title = $a.attr('title');
+    $a.attr("href", title)
+}
 
 var shareToken;
 const shareTokenV = reactive(user.getShareToken());
@@ -146,6 +153,7 @@ function getFileUrl(item, call) {
     item.text = "正在获取下载地址中"
 
     let showDnload;
+
     if (item.share_id) {
         showDnload = shareLinkDownloadUrl({
             file_id: item.file_id,
@@ -217,11 +225,13 @@ onUnmounted(() => {
                     <el-link v-if="item.type == 'folder'" type="primary"
                         :href="home ? '/drive/folder/' + item.file_id : '/s/' + shareTokenV.share_id + '/folder/' + item.file_id">点击进入文件夹</el-link>
 
-                    <el-link v-if="item.type == 'file' && !item.error" type="primary" :href="item.url" target="_blank">{{
-                        item.text
-                    }}</el-link>
+                    <el-link @mousedown="updateHref(item.file_id)" @mouseup="updateHref(item.file_id)"
+                        v-if="item.type == 'file' && !item.error" :data-id="item.file_id" type="primary" :title='item.url'
+                        :href="item.url" >{{
+                            item.text
+                        }}</el-link>
 
-                    <el-link v-if="item.type == 'file' && item.error" type="danger" :href="item.url" target="_blank">{{
+                    <el-link v-if="item.type == 'file' && item.error" type="danger" :href="item.url">{{
                         item.text
                     }}</el-link>
 
@@ -232,17 +242,19 @@ onUnmounted(() => {
         <div>
             <div class="footer">
                 <div>
-                    <ElButton  type="primary" @click.stop="monkeyWindow.open('https://github.com/wyndem/ali-video', '_blank')">❤️
+                    <ElButton type="primary"
+                        @click.stop="monkeyWindow.open('https://github.com/wyndem/ali-video', '_blank')">❤️
                         开源地址</ElButton>
 
-                    <ElButton  type="primary" @click.stop="monkeyWindow.open('https://greasyfork.org/zh-CN/scripts/458626', '_blank')">👍
+                    <ElButton type="primary"
+                        @click.stop="monkeyWindow.open('https://greasyfork.org/zh-CN/scripts/458626', '_blank')">👍
                         点个赞</ElButton>
-                    
-                    <ElButton  type="primary"  @click.stop="IDMPush">IDM 导出文件</ElButton>
 
-                    <ElButton  type="primary" @click.stop="aria2Push">{{data.pushBtonText }}</ElButton>
-                    <ElButton  type="primary" 
-                        style="margin-left: 10px;width: auto;border: 0 solid transparent;" class="aria2-set" @click.stop="showSet"  circle >⚙️</ElButton>
+                    <ElButton type="primary" @click.stop="IDMPush">IDM 导出文件</ElButton>
+
+                    <ElButton type="primary" @click.stop="aria2Push">{{ data.pushBtonText }}</ElButton>
+                    <ElButton type="primary" style="margin-left: 10px;width: auto;border: 0 solid transparent;"
+                        class="aria2-set" @click.stop="showSet" circle>⚙️</ElButton>
                 </div>
             </div>
         </div>

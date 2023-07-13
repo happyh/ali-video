@@ -47,7 +47,8 @@ export const shareLinkDownloadUrl=(data,shareToken)=>axios({
     },
     headers:{
         'content-type': 'application/json;charset=UTF-8',
-        'x-share-token': shareToken
+        'x-share-token': shareToken,
+        '_token':false
     }
 
 })

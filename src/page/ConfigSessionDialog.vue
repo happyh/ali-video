@@ -63,7 +63,7 @@ onUnmounted(() => {
   
   <ElDialog :show-close="false" :close-on-click-modal="false" :close-on-press-escape="false"	 v-model="dialogFormVisible" title="设备名额权限申请">
     <span>
-        因权限问题，需要占用一个登录设备名额，请您放心，并不是真的登录，您的每一个操作都没有经过第三方服务器，本脚本不会非法登录您的账号，更不会擅自获取您的隐私。<br/>
+        因权限问题，需要占用一个登录设备名额，请您放心，并不是真的登录，您的每一个操作都没有经过第三方服务器，本脚本根本没有数据非法登录您的账号，更不会擅自获取您的隐私。<br/>
         
         且本脚本已经开源所有代码，欢迎检查是否有后门程序，也欢迎您为本脚本提交更多有趣的功能。    
         <el-link href="https://github.com/wyndem/ali-video" target="_blank">👉查看开源地址</el-link>

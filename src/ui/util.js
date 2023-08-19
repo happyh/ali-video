@@ -1,7 +1,6 @@
 import $ from "jquery"
 import { ElMessage } from 'element-plus'
 
-
 var message = null;
 
 let showMessge = function (option) {
@@ -11,23 +10,25 @@ let showMessge = function (option) {
   message = ElMessage(option)
 }
 
-let showError = function (msg, timeout) {
+let showError = function (msg, timeout,option) {
 
 
   showMessge({
     message: msg,
     type: 'error',
-    duration: timeout || 3000
+    duration: timeout || 3000,
+    ...option
   })
 }
 
 
-let showSuccess = function (msg, timeout) {
+let showSuccess = function (msg, timeout,option) {
 
   showMessge({
     message: msg,
     type: 'success',
-    duration: timeout || 3000
+    duration: timeout || 3000,
+    ...option
   })
 }
 

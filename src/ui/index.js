@@ -22,13 +22,13 @@ function showHomeUi(menuName){
 function initHomeUi(){
     let menu = $(".nav-menu--Lm1q6")
     if (menu.length !== 0) {
-        $('.nav-menu-item--2oDIG').on('click',function(e){
+        $('.nav-tab-item--WhAQf').on('click',function(e){
             showHomeUi(e.currentTarget.textContent)
         })
         
         // 如果从收藏夹里面点击，则会触发该方法
         setInterval(function(){
-            let node = $(".is-active--fBPou:eq(0)");
+            let node = $(".is-active--8atYr:eq(0)");
             if(node.length>0){
                 if(node.text()!==globalMenuName){
                     showHomeUi(node.text()) 
@@ -36,7 +36,7 @@ function initHomeUi(){
             }
         },700); 
         setTimeout(function(){
-            let node = $(".is-active--fBPou:eq(0)");
+            let node = $(".is-active--8atYr:eq(0)");
             if(node.length>0){
                 showHomeUi(node.text()) 
             }
@@ -53,4 +53,5 @@ export default ()=>{
     }else{
         share()
     }
+
 }

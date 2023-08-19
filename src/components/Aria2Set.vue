@@ -1,7 +1,7 @@
 <script setup>
 import $ from "jquery"
 import user from '../util/user';
-import { reactive } from "vue";
+import { reactive,ref } from "vue";
 import {  ElButton,ElSwitch,ElInput  } from 'element-plus'
 import { showSuccess,showError } from "../ui/util";
 
@@ -11,13 +11,43 @@ const data = reactive({
     pushBtonText: 'Aria2 推送',
     aria2Model: user.getAria2Set()
 })
+const errorMsg = ref(false)
 
 
 
 function saveAria2() {
-    user.setAria2Set(data.aria2Model);
-    data.isShowAria2Set = false;
-    showSuccess("Aria2配置保存成功")
+    $.ajax({
+        type: "POST",
+        url: data.aria2Model.link,
+        data: JSON.stringify({
+            "jsonrpc": "2.0",
+            "method": "aria2.getVersion",
+            "id": "1",
+            "params": [
+            "token:"+data.aria2Model.token
+            ]
+        }),
+        crossDomain: true,
+        processData: false,
+        contentType: "application/json",
+        success: function (result) {
+            user.setAria2Set(data.aria2Model);
+            data.isShowAria2Set = false;
+            errorMsg.value=false
+            showSuccess("Aria2配置保存成功",null,{
+                appendTo:".ant-modal-header"
+            })
+    
+        },
+        error: function (error) {
+            errorMsg.value=true
+            showError("保存失败,连接不上Aria2配置",null,{
+                appendTo:"#aria2_set_LuoGen"
+            })
+        }
+    });
+
+
 }
 
 
@@ -65,14 +95,18 @@ function aria2Push(fileList,call) {
         processData: false,
         contentType: "application/json",
         success: function (result) {
-            showSuccess("Aria2推送成功")
+            showSuccess("Aria2推送成功",null,{
+                appendTo:".ant-modal-header"
+            })
             data.pushBtonText = text;
             call(true)
         },
         error: function (error) {
-            showError("Aria2 推送失败,请检查配置，或刷新后重试")
+            showError("Aria2 推送失败,请检查配置",null,{
+                appendTo:".ant-modal-header"
+            })
             data.pushBtonText = text;
-            call(flase)
+            call(false)
         }
     });
 
@@ -96,7 +130,7 @@ defineExpose({
  <div class="ant-modal-root" id="aria2-set-box" v-if="data.isShowAria2Set">
         <div class="ant-modal-mask">
         </div>
-        <div tabindex="-1" class="ant-modal-wrap" role="dialog">
+        <div tabindex="-1" class="ant-modal-wrap" role="dialog" id="aria2_set_LuoGen">
             <div role="document" class="ant-modal modal-wrapper--2yJKO" style="width: 340px;transform-origin: -14px 195px;">
                 <div class="ant-modal-content">
                     <div class="ant-modal-header">
@@ -135,12 +169,18 @@ defineExpose({
                             其他：
                         </div>
                         不创建对应目录： <el-switch v-model="data.aria2Model.dirCreate" />
+                        <p class="notice2" v-if="errorMsg">连接不上的原因：<br/> 1.端口或链接填写错误<br/> 2.密钥错误 <br/>  3.未开启跨域请求<br/>
+                        </p>
+                        <p class="notice2" v-if="errorMsg">
+                            ./aria2c.exe --enable-rpc --rpc-listen-all   --rpc-secret 123 --rpc-allow-origin-all=true<br/>
+                            可以在Aria2的程序目录下,使用上面命令,RPC密钥为:123
+                        </p>
                     </div>
                     <div class="ant-modal-footer">
                         <div class="footer--3Q0je">
                             <ElButton id="aria2-set-save" type="primary" 
                                 @click.stop="saveAria2">
-                                确定
+                                检测 & 确定
                             </ElButton>
                         </div>
                     </div>
@@ -171,6 +211,11 @@ defineExpose({
     transition: all .3s ease;
     cursor: pointer;
     z-index: 10;
+}
+.notice2 {
+    margin: 2px 0 0;
+    color: red;
+    font-size: 8pt;
 }
 
 

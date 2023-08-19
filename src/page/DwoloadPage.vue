@@ -16,8 +16,10 @@ let list = user.selectedFileList();
 if (list.length == 0) {
     list = user.getAllFileList();
 }
-
-
+list= list.filter(function(item) {
+  return item.type === 'folder' || item.type === 'file' ;
+});
+console.log(list)
 
 const fileList = reactive(list)
 const aria2SetRef = ref()
@@ -25,6 +27,7 @@ const data = reactive({
     pushBtonText: 'Aria2 推送'
 })
 const home = ref(user.home())
+const resource = ref(user.resource())
 const laterLoad = ref(getCount() != 0 && list == 0)
 
 
@@ -143,7 +146,12 @@ function aria2Push() {
     var text = data.pushBtonText;
     data.pushBtonText = "正在推送"
     aria2SetRef.value.aria2Push(fileList, (res) => {
-        data.pushBtonText = text;
+        if(res==false){
+            data.pushBtonText = '推送失败'
+        }else{
+            data.pushBtonText = text;
+
+        }
     })
 
 }
@@ -223,7 +231,8 @@ onUnmounted(() => {
                 </p>
                 <p style="margin:10px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
                     <el-link v-if="item.type == 'folder'" type="primary"
-                        :href="home ? '/drive/folder/' + item.file_id : '/s/' + shareTokenV.share_id + '/folder/' + item.file_id">点击进入文件夹</el-link>
+                        :href="resource ? '/drive/file/resource/' + item.file_id : 
+                        home ? '/drive/file/backup/' + item.file_id : '/s/' + shareTokenV.share_id + '/folder/' + item.file_id">点击进入文件夹</el-link>
 
                     <el-link @mousedown="updateHref(item.file_id)" @mouseup="updateHref(item.file_id)"
                         v-if="item.type == 'file' && !item.error" :data-id="item.file_id" type="primary" :title='item.url'

@@ -20,9 +20,9 @@ function initMenuButton  (menuName) {
     }
 
     var css ='#root header:eq(0)'
-    if(menuName==='密码箱'){
-        css ='.actions--2qvID:eq(0)'
-    }
+    // if(menuName==='密码箱'){
+    //     css ='.actions--2qvID:eq(0)'
+    // }
 
     if ($(css).length > 0) {
         var html = ''
@@ -44,6 +44,8 @@ function initMenuButton  (menuName) {
         }, 1000)
     }
 }
+
+
 
 export default (menuName)=>{
 

@@ -84,9 +84,9 @@ function getFileList(parent_file_id, name) {
 
 
                 if (parent_file_id == 'root') {
-                    url.value = 'https://www.aliyundrive.com/drive'
+                    url.value = 'https://www.aliyundrive.com/drive/file/backup'
                 } else {
-                    url.value = 'https://www.aliyundrive.com/drive/folder/' + parent_file_id
+                    url.value = 'https://www.aliyundrive.com/drive/file/backup/' + parent_file_id
                 }
 
             }).catch(e => {
@@ -117,7 +117,7 @@ function toUrlFile() {
         return;
     }
 
-    var regex = /folder\/(.+?)(?:\/|\?|$)/;
+    var regex = /backup\/(.+?)(?:\/|\?|$)/;
     var match = link.match(regex);
     if (match) {
         var value = match[1];

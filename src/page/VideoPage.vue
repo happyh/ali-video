@@ -56,7 +56,8 @@ onMounted(() => {
 function getOption(video) {
 
     let vInfo = user.getVideoPage();
-    let yh = vInfo.name && getExt(vInfo.name) == 'mp4'
+    // 暂时去除原画
+    let yh = vInfo.name && getExt(vInfo.name) == 'mp4' && false
 
     //视频信息
     let play_info = video.video_preview_play_info
@@ -451,7 +452,7 @@ function getVideoInfo(call) {
             },
         }
         if (videoInfo.type == 0) {
-            $('.text--2KGvI').text(videoInfo.name)
+            $('.text--KBVB3').text(videoInfo.name)
         } else if (videoInfo.type == 1) {
             $('.header-file-name--CN_fq').text(videoInfo.name)
         }

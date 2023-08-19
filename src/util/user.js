@@ -6,10 +6,12 @@ import {createSessionUrl} from '../api/aliyun'
 import { ElMessageBox } from 'element-plus'
 
 function copy (obj) {
-    var newobj = obj.constructor === Array ? [] : {};
-    if(typeof obj !== 'object'){
+    
+    if(typeof obj !== 'object' || obj == null){
         return;
     }
+    var newobj = obj.constructor === Array ? [] : {};
+
     for(var i in obj){
        newobj[i] = typeof obj[i] === 'object' ? copy(obj[i]) : obj[i];
     }
@@ -293,7 +295,14 @@ class User {
      * 是否在首页
      */
     home() {
-        return location.href.indexOf('com/drive') > 0
+        return location.href.indexOf('/drive/file') > 0
+    }
+
+    /**
+     * 是否在资源库
+     */
+    resource() {
+        return location.href.indexOf('/drive/file/resource') > 0
     }
 
 
@@ -322,6 +331,7 @@ class User {
     // 获取当前页面上所有的文件
     getAllFileList(){
        let   fileList = this.getPage().items
+       
        if (fileList.length === 0) {
         console.error('获取文件列表失败')
         return []
@@ -361,6 +371,7 @@ class User {
                 data_index && selectedFileList.push(fileList[data_index])
             }
         })
+        
         return copy(selectedFileList);
     }
 

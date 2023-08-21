@@ -1,6 +1,6 @@
 
 
-import { ElMessage } from 'element-plus'
+import { ElMessage,ElMessageBox   } from 'element-plus'
 import { listen } from './api/intercept'
 import user from './util/user'
 import ui from './ui/index'
@@ -46,6 +46,35 @@ function start() {
 
 
   function run(val) {
+
+    $(function() {
+
+      var versionRegex = /\/(\d+\.\d+\.\d+)/; 
+      var scriptSrc = $('script[src*="bundle.js"]').attr('src');
+      var match = scriptSrc.match(versionRegex);
+      var version = match ? match[1] : null; // 提取匹配到的版本号
+      console.log("UI版本: "+version)
+      if(version == '4.6.0'){
+        ElMessageBox.confirm('目前版本不兼容老版本UI,点击按钮安装兼容版本:v2.1.2?',"提示",{
+          confirmButtonText: '确定',
+          showCancelButton: false,
+          closeOnClickModal: false,
+          closeOnPressEscape: false,
+          showClose: false
+        })
+        .then(() => {
+          var url = 'https://greasyfork.org/zh-CN/scripts/458626?version=1219577';
+          window.open(url, '_blank');
+        })
+        .catch(() => {
+          
+        })
+      }
+    });
+  
+
+
+
     setInterval(user.refSession, 300000);
     user.refSession()
     ui()

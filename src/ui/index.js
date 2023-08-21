@@ -57,7 +57,7 @@ function signInUi(){
         app.mount(
             (() => {
               const app = document.createElement('div');
-              storage.append(app);
+              storage.prepend (app);
               return app;
             })(),
           );

@@ -61,6 +61,19 @@ class User {
         return this.video;
     }
 
+    /**
+     * 获取自动签到设置
+     * 
+     */
+    getSignInSet(){
+        let config= store.getItem("signIn_config")
+        return  config == '' ? {} :config
+    }
+
+    setSignInSet(signInInfo){
+        return store.setItem("signIn_config",signInInfo)
+    }
+
     //保存当前播放器设置
     saveVideoPlayerSet(art){
 
@@ -136,6 +149,7 @@ class User {
         store.removeItem('x-signature')
         store.removeItem('deviceName')
         store.removeItem('modelName')
+        store.removeItem('signIn_config')
     }
 
     clearAll(){

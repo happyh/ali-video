@@ -73,13 +73,36 @@ export const createSessionUrl=(data,signature,deviceId)=>axios({
 
 
 
-// export const getDownloadUrl=(data)=>axios({
-//     method: 'post',
-//     url:'/v2/file/get_download_url',
-//     data:{
-//         ...data
-//     },
-//     headers:{
-//         '_token':false
-//     }
-// })
+/**
+ * 签到
+ */
+export const signInList=()=>axios({
+    method: 'post',
+    url:'https://member.aliyundrive.com/v1/activity/sign_in_list',
+    data:{
+        "_rx-s": "mobile" 
+    },
+    headers:{
+        'content-type': 'application/json;charset=UTF-8',
+        '_token':false
+    }
+
+})
+
+
+/**
+ * 签到 领取奖励
+ * @param signInDay 领取第几天的奖励
+ */
+export const signInReward=(signInDay)=>axios({
+    method: 'post',
+    url:'https://member.aliyundrive.com/v1/activity/sign_in_reward',
+    data:{
+        "signInDay": signInDay
+    },
+    headers:{
+        'content-type': 'application/json;charset=UTF-8',
+        '_token':false
+    }
+
+})

@@ -48,7 +48,7 @@ function handler(res) {
     console.log(`已加载${page.items.length}个文件`)
     showSuccess(`已加载${page.items.length}个文件`)
 
-    if($(".button-download-aliyun").length <= 0){
+    if($(".button-download-aliyun").length <= 0 && user.home()){
         home()
     }
 

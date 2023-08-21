@@ -89,9 +89,9 @@ let showShareDiv = function (title, app) {
   </div>
   <div tabindex="-1" class="ant-modal-wrap" role="dialog">
     <div role="document" class="ant-modal modal-wrapper--5SA7y" style="width: 666px;">
-      <div class="ant-modal-content">
+      <div class="ant-modal-content" >
         <div class="ant-modal-header">
-          <div class="ant-modal-title" id="rcDialogTitle1">{title}</div>
+          <div class="ant-modal-title" id="rcDialogTitle1" >{title}</div>
         </div>
         <div class="ant-modal-body">
           <div class="icon-wrapper--TbIdu" style="height:28px;width:28px;display:-ms-flexbox;display:flex;border-radius:5px;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;color:var(--context_secondary);position:absolute;top:18px;right:16px;-webkit-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease;cursor:pointer;z-index:10;" data-spm-anchor-id="aliyundrive.file_file_sharing.0.i2.39733575IlF5dn">

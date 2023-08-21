@@ -15,8 +15,7 @@ let showDownloadHomePage = function () {
 function initMenuButton  (menuName) {
 
     if ($('.button-download-aliyun').length !== 0) {
-        $('.button-download-aliyun').remove();
-        $('.history-video').remove();
+        return;
     }
 
     var css ='#root header:eq(0)'

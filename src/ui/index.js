@@ -2,6 +2,8 @@ import home  from './home'
 import share  from './share'
 import $ from "jquery"
 import user from '../util/user'
+import SignIn from '../page/SignInPage.vue'
+import { createApp } from 'vue';
 
 var globalMenuName;
 
@@ -47,9 +49,30 @@ function initHomeUi(){
 }
 
 
+function signInUi(){
+
+    let storage = $(".storage-wrapper--h-rcS")
+    if (storage.length !== 0) {
+        let app =  createApp(SignIn)
+        app.mount(
+            (() => {
+              const app = document.createElement('div');
+              storage.append(app);
+              return app;
+            })(),
+          );
+    
+    }else{
+        setTimeout(signInUi, 500)
+    }
+
+}
+
+
 export default ()=>{
     if(user.home()){
         initHomeUi()
+        signInUi()
     }else{
         share()
     }

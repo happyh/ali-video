@@ -396,12 +396,12 @@ function getVideoInfo(call) {
     }
 
     let videoInfo = user.getVideoPage();
-
+    
     let req;
     if (videoInfo.type == 0) {
         req = videoPreviewPlayInfo({
             category: 'live_transcoding',
-            drive_id: token.default_drive_id,
+            drive_id: videoInfo.drive_id,
             file_id: videoInfo.id,
             template_id: "FHD|HD|SD|LD",
             url_expire_sec: 14400,

@@ -51,7 +51,8 @@ class User {
             //当前视频所在的文件夹名称
             folderName:"",
             //跳转地址
-            href:''
+            href:'',
+            drive_id:''
 
         }
 

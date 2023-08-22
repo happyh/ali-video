@@ -25,6 +25,7 @@ function initVideoPlayer(videoFile) {
     }
 
     let vInfo = user.getVideoPage()
+
     vInfo.id = videoFile.file_id;
     if (videoFile.user_meta) {
         try {
@@ -36,6 +37,7 @@ function initVideoPlayer(videoFile) {
         }
     }
     vInfo.name = videoFile.name;
+    vInfo.drive_id = videoFile.drive_id;
     vInfo.thumbnail = videoFile.thumbnail;
     vInfo.folderName = user.getPage().folderName;
     vInfo.type = 0;
@@ -44,7 +46,6 @@ function initVideoPlayer(videoFile) {
 
     app.mount(
         (() => {
-            console.log("我创建了1")
             const app = $(`<div id="videoPage" class='video-previewer--6slx7'></div>`)[0];
             node.replaceWith(app);
             return app;

@@ -70,7 +70,7 @@ function homeVideo(videoFile) {
 
 function shareVideo(videoFile) {
 
-    let node = $(".video-previewer--1ESTK")
+    let node = $(".video-previewer--Rg9fI")
 
     if (node.length <= 0) {
         if (interval == null) {
@@ -122,7 +122,7 @@ function shareVideo(videoFile) {
     var app = createApp(VideoPage)
     app.mount(
         (() => {
-            const app = $(`<div id="videoPage" class='video-previewer--1vo5c'></div>`)[0];
+            const app = $(`<div id="videoPage" class='video-previewer--Rg9fI'></div>`)[0];
             node.replaceWith(app);
             return app;
         })(),

@@ -101,6 +101,17 @@ let interceptRequest = function(){
                 },
             })
         }
+        if(repsonse && repsonse.status==400 && repsonse.data.code == "DeviceSessionSignatureInvalid"){
+            user.removeSession()
+            ElMessageBox.alert("当前设备session过去,点击刷新session","session过期", {
+                confirmButtonText: '刷新',
+                callback: (action) => {
+                    location.href = location.href
+                },
+            })
+            error.skip = true;
+        }
+
 
         if(repsonse && repsonse.status==400 && repsonse.data.message == "not found device info"){
             user.clearSession()

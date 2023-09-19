@@ -36,7 +36,7 @@ function initShareButton  () {
 
     if ($('#root [class^=banner] [class^=right]').length !== 0 && $('.button--fep7l').length == 0) {
         var html = ''
-        html += '<div style="margin:1px 7px;"></div><button class="button--2Aa4u primary--3AJe5 small---B8mi button-download-aliyun">显示链接</button>'
+        html += '<div style="margin:1px 7px;"></div><button class="button--WC7or primary--NVxfK  medium--Pt0UL button-download-aliyun">显示链接</button>'
         $('#root [class^=banner] [class^=right]').prepend(html)
         $('.button-download-aliyun').on('click', showDownloadSharePage)
 

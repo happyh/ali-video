@@ -462,6 +462,9 @@ function getVideoInfo(call) {
             instance.pause();
             instance.destroy(false)
         }
+        if(e.skip){
+            return;
+        }
         console.log(e)
         if(retries != 0 ){
             retries = retries -1; 

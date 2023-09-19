@@ -153,6 +153,11 @@ class User {
         store.removeItem('signIn_config')
     }
 
+    removeSession(){
+        store.removeItem('LG_session')
+
+    }
+
     clearAll(){
         user.clearSession()
         user.clearVideoHistory()
@@ -364,19 +369,10 @@ class User {
         }
         let node = ''
         
-        if(this.home()){
-            if (jq('.tbody--Na444  .tr--Ogi-3.tr--97U9T').length) {
-                node = jq('.tbody--Na444  .tr--Ogi-3.tr--97U9T')
-            } else if (jq('.outer-wrapper--JCodp').length) {
-                node = jq('.outer-wrapper--JCodp')
-            }
-        }else{
-
-            if (jq('.tbody--3Y4Fn  .tr--5N-1q.tr--3Ypim').length) {
-                node = jq('.tbody--3Y4Fn  .tr--5N-1q.tr--3Ypim')
-            } else if (jq('.outer-wrapper--25yYA').length) {
-                node = jq('.outer-wrapper--25yYA')
-            }
+        if (jq('.tbody--Na444  .tr--Ogi-3.tr--97U9T').length) {
+            node = jq('.tbody--Na444  .tr--Ogi-3.tr--97U9T')
+        } else if (jq('.outer-wrapper--JCodp').length) {
+            node = jq('.outer-wrapper--JCodp')
         }
       
         node.each(function (index) {

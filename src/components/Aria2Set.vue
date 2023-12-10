@@ -169,8 +169,13 @@ defineExpose({
                             其他：
                         </div>
                         不创建对应目录： <el-switch v-model="data.aria2Model.dirCreate" />
+                        <p class="notice2" v-if="errorMsg">
+                            如果当前推送链接是http开头，则需要修改浏览器安全限制更改为允许。
+                        </p>
+
                         <p class="notice2" v-if="errorMsg">连接不上的原因：<br/> 1.端口或链接填写错误<br/> 2.密钥错误 <br/>  3.未开启跨域请求<br/>
                         </p>
+                     
                         <p class="notice2" v-if="errorMsg">
                             ./aria2c.exe --enable-rpc --rpc-listen-all   --rpc-secret 123 --rpc-allow-origin-all=true<br/>
                             可以在Aria2的程序目录下,使用上面命令,RPC密钥为:123

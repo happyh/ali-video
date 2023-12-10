@@ -6,8 +6,8 @@ import user from '../util/user';
 
 let shareId = function () {
     var url = location.href
-    var match = url.match(/aliyundrive\.com\/s\/([a-zA-Z\d]+)/)
-    return match ? match[1] : null
+    var match = url.match(/(aliyundrive|alipan)\.com\/s\/([a-zA-Z\d]+)/)
+    return match ? match[2] : null
 }
 
 

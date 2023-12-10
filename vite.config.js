@@ -19,7 +19,7 @@ export default defineConfig({
         icon: 'https://img.alicdn.com/imgextra/i1/O1CN01JDQCi21Dc8EfbRwvF_!!6000000000236-73-tps-64-64.ico',
         namespace: 'http://tampermonkey.net/',
         author:"罗根大人",
-        match: ['https://www.aliyundrive.com/*'],
+        match: ['https://www.aliyundrive.com/*','https://www.alipan.com/*'],
       },
       build: {
         externalGlobals: {

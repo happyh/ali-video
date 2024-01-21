@@ -122,7 +122,10 @@ function showSet() {
 
 
 function IDMPush() {
-    var content = "", referer = "https://www.aliyundrive.com/", userAgent = navigator.userAgent;
+    var protocol = window.location.protocol; // 获取协议，例如 'http:'
+    var host = window.location.host; // 获取主机名，例如 'www.bilibili.com'
+    var fullHost = protocol + '//' + host+"/";
+    var content = "", referer = fullHost, userAgent = navigator.userAgent;
     fileList.forEach(function (item, index) {
         if (item.url != '' && item.url != null) {
             content += ["<", item.url, "referer: " + referer, "User-Agent: " + userAgent, ">"].join("\r\n") + "\r\n";
@@ -178,8 +181,13 @@ function getFileUrl(item, call) {
             file_id: item.file_id
         }).then((response) => {
             item.error = false;
-            item.text = response.data.url
-            item.url = response.data.url
+            if(response.data.url){
+                item.text = response.data.url
+                item.url = response.data.url
+            }else{
+                item.text =item.url;
+            }
+           
         })
     }
 

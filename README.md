@@ -39,6 +39,7 @@ https://greasyfork.org/zh-CN/scripts/458626
 - 后缀修改
 - 视频快捷键已添加
 - 历史播放
+- M3U文件导出
 
 
 ## 操作姿势

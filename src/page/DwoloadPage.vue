@@ -1,8 +1,8 @@
 <script setup>
-import { ref, onMounted, onUnmounted, reactive, withCtx } from "vue";
+import { ref, onMounted, onUnmounted, reactive } from "vue";
 import { monkeyWindow } from '$';
 import user from '../util/user';
-import { getDownloadUrl, shareLinkDownloadUrl } from '../api/aliyun'
+import { getDownloadUrl, shareLinkDownloadUrl,videoPreviewPlayInfo } from '../api/aliyun'
 import { ElLink, ElButton, ElResult } from 'element-plus'
 import {
     Refresh
@@ -124,8 +124,8 @@ function showSet() {
 
 
 function IDMPush() {
-    var protocol = window.location.protocol; // 获取协议，例如 'http:'
-    var host = window.location.host; // 获取主机名，例如 'www.bilibili.com'
+    var protocol = window.location.protocol; 
+    var host = window.location.host;
     var fullHost = protocol + '//' + host+"/";
     var content = "", referer = fullHost, userAgent = navigator.userAgent;
     fileList.forEach(function (item, index) {
@@ -134,13 +134,8 @@ function IDMPush() {
         }
 
     });
-    var a = document.createElement("a");
-    var blob = new Blob([content]);
-    var url = window.URL.createObjectURL(blob);
-    a.href = url;
-    a.download = "IDM导出文件_阿里云盘.ef2";
-    a.click();
-    window.URL.revokeObjectURL(url);
+
+    downloadLink(content,"IDM导出文件_阿里云盘.ef2")
 }
 
 
@@ -161,6 +156,79 @@ function aria2Push() {
 
 }
 
+
+function bitComet(item) {
+
+    if (!item || !item.name) {
+        throw new Error('Item or item.name is not defined');
+    }
+
+    const params = `AA/${encodeURIComponent(item.name)}/?url=${encodeURIComponent(item.download_url || item.url)}&refer=${encodeURIComponent(location.protocol + "//" + location.host + "/")}ZZ`;
+
+    const base64Params = btoa(params);
+
+    let url = `bc://http/${base64Params}`
+
+    navigator.clipboard.writeText(url)
+    createLink(url);
+}
+
+function m3u(item){
+    item.loading = true
+    videoPreviewPlayInfo({
+            category: 'live_transcoding',
+            drive_id: item.drive_id,
+            file_id: item.file_id,
+            template_id: "FHD|HD|SD|LD",
+            url_expire_sec: 14400,
+            get_subtitle_info: !0
+        }).then(res => {
+            const task = res.data?.video_preview_play_info?.live_transcoding_task_list?.filter(task => task.url)
+            .pop();
+            if(task == null){
+                showError("获取视频链接失败，请重新获取")
+                return
+            }
+         
+            const escapedTitle = item.name.replace(/,/g, '\\,');
+            let referrer = location.protocol + "//" + location.host + "/";
+            const escapedUrl = task.url.replace(/,/g, '\\,');
+            const m3uContent = [
+            '#EXTM3U',
+            `#EXTVLCOPT:http-referrer=${referrer}`,
+            `#EXTINF:-1, ${escapedTitle}`,
+            escapedUrl
+            ].join('\n');
+
+            let name = item.name.substring(0,item.name.lastIndexOf("."+item.file_extension))
+            downloadLink(m3uContent,`${name || '视频文件'}.m3u`)
+        }).finally(()=>{
+            item.loading = false
+        });
+   
+}
+
+function downloadLink (text, name) {
+    var a = document.createElement("a");
+    var blob = new Blob([text]);
+    var url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = name;
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
+function createLink(url){
+
+    const a = document.createElement('a');
+
+    a.href = url;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
 function getFileUrl(item, call) {
     item.loading = true;
     item.text = "正在获取下载地址中"
@@ -175,6 +243,7 @@ function getFileUrl(item, call) {
             item.error = false;
             item.text = response.data.download_url
             item.url = response.data.download_url
+      
         })
     } else {
         showDnload = getDownloadUrl({
@@ -189,8 +258,9 @@ function getFileUrl(item, call) {
             }else{
                 item.text =item.url;
             }
-           
+
         })
+ 
     }
 
     showDnload.catch((e) => {
@@ -238,6 +308,10 @@ onUnmounted(() => {
                 <p v-if="item.type == 'file'" :class="CLASS_NAMES.textPrimary">{{ index + 1 }}. {{ item.name }}
                     <el-button type="primary" :icon="Refresh" :loading="item.loading" circle size="small"
                         @click.stop="getFileUrl(item)" />
+                    <el-link type="primary" style="margin-left: 10px;" :loading="item.loading" 
+                       @click.stop="bitComet(item)" >BitComet</el-link>
+                    <el-link type="primary" v-if="home && item.mime_type.indexOf('video')!=-1" style="margin-left: 10px;" :loading="item.loading" 
+                       @click.stop="m3u(item)" >M3U</el-link>
                 </p>
                 <p style="margin:10px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
                     <el-link v-if="item.type == 'folder'" type="primary"

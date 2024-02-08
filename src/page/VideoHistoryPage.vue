@@ -4,6 +4,7 @@ import { homeWidgets } from '../api/aliyun'
 import user from '../util/user';
 import $ from "jquery"
 import VideoPage from './VideoPage.vue'
+import { CLASS_NAMES } from '../ui/style'
 
 
 let locList = ref(user.getVideoLookList())
@@ -170,14 +171,14 @@ onUnmounted(() => {
 
 <template>
     <div>
-        <p style="padding-bottom:10px"> 最近观看了{{ locList.length + clodList.length }}个视频</p>
+        <p style="padding-bottom:10px" :class="CLASS_NAMES.textPrimary"> 最近观看了{{ locList.length + clodList.length }}个视频</p>
 
         <div style="height: 410px; overflow-y: auto;">
             <div v-for="(data, i1) in listData" :key="i1" >
 
                 <hr v-if="data.key=='云端历史'" align=center width="100%" color="#1890ff" size=1/>
 
-                <h1 style="padding-bottom:13px">{{ data.key }}</h1>
+                <h1 style="padding-bottom:13px" :class="CLASS_NAMES.textPrimary">{{ data.key }}</h1>
                 <p v-if="data.key=='本地历史'" class="text-secondary--38-Of clearHistory" style="padding-bottom:13px" @click.stop="clearHistory"><a>清空本地历史</a></p>
 
                     <div style="height: 52px; width: 100%;" v-for="(item, index) in data.list" :key="index">
@@ -190,7 +191,8 @@ onUnmounted(() => {
                                             aria-checked="false" data-checked="false" data-partial="false"
                                             data-disabled="false" data-no-padding="false"><span data-role="icon"
                                                 data-render-as="svg" data-icon-type="PDSMore"
-                                                class="ant-dropdown-trigger icon--d-ejA "><svg t="1676180557921"
+                                                class="ant-dropdown-trigger icon--d-ejA ">
+                                                <svg t="1676180557921"
                                                     class="icon" viewBox="0 0 1024 1024" version="1.1"
                                                     xmlns="http://www.w3.org/2000/svg" p-id="3478" width="16" height="16">
                                                     <path
@@ -214,7 +216,7 @@ onUnmounted(() => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <p class="text-primary--JzAb9" :title="item.name">{{ item.name }}</p>
+                                        <p :class="CLASS_NAMES.textPrimary" :title="item.name">{{ item.name }}</p>
                                     </div>
                                     <div compilationid="" 
                                         class="history_video td--SGrZj td---v-kp" data-col-key="updated_at"

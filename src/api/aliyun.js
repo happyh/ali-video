@@ -3,17 +3,26 @@ import axios from 'axios'
 
 export const getDownloadUrl=(data)=>axios.post('/v2/file/get_download_url',data,{
     headers: {
-      'x-canary': 'client=web,app=adrive,version=v4.2.0',
+      'x-canary': 'client=windows,app=adrive,version=v4.9.12',
     }
   })
 export const search=(data)=>axios.post('/adrive/v3/file/search',data,{
     headers: {
-      'x-canary': 'client=web,app=adrive,version=v4.2.0',
+      'x-canary': 'client=windows,app=adrive,version=v4.9.12',
     }
   })
 export const videoUpdate=(data)=>axios.post('/adrive/v2/video/update',data)
 
-export const deviceLogout=()=>axios.post('/users/v1/users/device_logout',{})
+export const deviceLogout=()=>axios.post({
+    method: 'post',
+    url:'/users/v1/users/device_logout',
+    data:{
+    },
+    headers:{
+        '_source': 'aliyun'
+    }
+
+})
 
 export const homeWidgets=()=>axios.post('/apps/v1/users/home/widgets',{"context":{"recentUsed":{"limit":20},"recentSaved":{"limit":1}}})
 
@@ -63,7 +72,7 @@ export const createSessionUrl=(data,signature,deviceId)=>axios({
     },
     headers:{
         'content-type': 'application/json;charset=UTF-8',
-        'x-canary': 'client=web,app=adrive,version=v3.17.0',
+        'x-canary': 'client=web,app=adrive,version=v4.9.0',
         '_token':false,
         'x-signature': signature,
         'x-device-id': deviceId

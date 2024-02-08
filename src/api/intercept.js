@@ -44,7 +44,7 @@ function initXMLHttpRequest(http) {
             if (_this._header_) {
                 dataBody.headers = _this._header_
             }
-            if (_this._header_ && _this._header_['fileId']) {
+            if (_this._header_ && (_this._header_['fileId'] || _this._header_['_source'])) {
                 return send.apply(_this, data)
             }
 
@@ -64,7 +64,7 @@ function initXMLHttpRequest(http) {
                 }
                 // 请求后拦截
                 let res = this.response
-                if (_this._header_ && _this._header_['fileId']) {
+                if (_this._header_ && (_this._header_['fileId'] || _this._header_['_source'])) {
                     return
                 }
 
@@ -72,8 +72,7 @@ function initXMLHttpRequest(http) {
                     try {
                         res = JSON.parse(this.response)
                     } catch (e) {
-                        console.log("解析出问题了， ",e)
-                        return
+                        
                     }
                 }
        

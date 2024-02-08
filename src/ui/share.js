@@ -3,6 +3,7 @@ import { showShareDiv,showError } from "./util";
 import { createApp } from 'vue';
 import DwoloadPage from '../page/DwoloadPage.vue'
 import user from '../util/user';
+import { CLASS_NAMES } from './style'
 
 let shareId = function () {
     var url = location.href
@@ -36,7 +37,7 @@ function initShareButton  () {
 
     if ($('#root [class^=banner] [class^=right]').length !== 0 && $('.button--fep7l').length == 0) {
         var html = ''
-        html += '<div style="margin:1px 7px;"></div><button class="button--WC7or primary--NVxfK  medium--Pt0UL button-download-aliyun">显示链接</button>'
+        html += `<div style="margin:1px 7px;"></div><button class="${CLASS_NAMES.button}  medium--Pt0UL button-download-aliyun"><p class='${CLASS_NAMES.textPrimary}'>显示链接<p></button>`
         $('#root [class^=banner] [class^=right]').prepend(html)
         $('.button-download-aliyun').on('click', showDownloadSharePage)
 

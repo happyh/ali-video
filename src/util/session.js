@@ -17,16 +17,14 @@ function  fu(){
 }
 
 // generate privKey
-function  generatePrivKey(id,key){
+function  generatePrivKey(id){
     let privKey
-    if(key==null){
-        key =MD5(id+randomString(16))
-    }
+    let  random =MD5(id+randomString(16))
     do {
-        privKey = bf.from(key)
+        privKey = bf.from(random)
     } while (!secp256k1.privateKeyVerify(privKey))
     return {
-        key:key,
+        key:id,
         iv:privKey
     };
 }

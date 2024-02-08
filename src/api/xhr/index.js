@@ -3,6 +3,8 @@ import fileGet  from './fileGet'
 import shareVideo  from './shareVideo'
 import fileUpdate  from './fileUpdate'
 import logout  from './logout'
+import session  from './session'
+
 
 
 export default ()=>{
@@ -11,4 +13,5 @@ export default ()=>{
     shareVideo()
     fileUpdate()
     logout()
+    // session()
 }

@@ -103,7 +103,7 @@ let interceptRequest = function(){
         }
         if(repsonse && repsonse.status==400 && repsonse.data.code == "DeviceSessionSignatureInvalid"){
             user.removeSession()
-            ElMessageBox.alert("当前设备session过去,点击刷新session","session过期", {
+            ElMessageBox.alert("当前设备session过期,点击刷新session","session过期", {
                 confirmButtonText: '刷新',
                 callback: (action) => {
                     location.href = location.href
@@ -123,7 +123,7 @@ let interceptRequest = function(){
                 },
             })
         }
-        console.error("错误信息：",repsonse.data.message)
+        console.error("错误信息：",error)
         return Promise.reject(error);
       });
     

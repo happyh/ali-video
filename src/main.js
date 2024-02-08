@@ -37,9 +37,11 @@ function start() {
     );
   }else{
     listen()
-      session(function(){
-        run()
-      })
+    session(function(){
+      run()
+    })
+    ui()
+
   }
 
 
@@ -72,12 +74,8 @@ function start() {
       }
     });
   
-
-
-
     setInterval(user.refSession, 300000);
     user.refSession()
-    ui()
     ElMessage({
       message: '阿里云助手加载成功',
       type: 'success',

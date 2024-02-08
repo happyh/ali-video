@@ -191,7 +191,7 @@ defineExpose({
                     <div class="cover--Mn1Bt folder-cover--ExDmp" data-size="XXS">
                         <img alt="folder" class="fileicon--Ob-Oj fileicon---webs " draggable="false" src="https://img.alicdn.com/imgextra/i3/O1CN01qSxjg71RMTCxOfTdi_!!6000000002097-2-tps-80-80.png">
                     </div>
-                    <p class="text-primary--JzAb9" :title="item.name">{{ item.name }}</p>
+                    <p :title="item.name">{{ item.name }}</p>
                  </div>
             </ElCard>
 
@@ -201,7 +201,7 @@ defineExpose({
                         <img alt="others" class="fileicon--Ob-Oj fileicon---webs" draggable="false"
                     src="https://img.alicdn.com/imgextra/i2/O1CN01ROG7du1aV18hZukHC_!!6000000003334-2-tps-140-140.png" />              
                       </div>
-                    <p class="text-primary--JzAb9" :title="item.name">{{ item.name }}</p>
+                    <p  :title="item.name">{{ item.name }}</p>
                  </div>
             </ElCard>
 

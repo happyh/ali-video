@@ -11,6 +11,8 @@ import 'element-plus/dist/index.css'
 import Aria2Set from '../components/Aria2Set.vue';
 import { showError } from "../ui/util";
 import $ from "jquery"
+import { CLASS_NAMES } from '../ui/style'
+
 
 let list = user.selectedFileList();
 if (list.length == 0) {
@@ -232,21 +234,23 @@ onUnmounted(() => {
         <p class="notice"> 共加载了{{ fileList.length }}个文件</p>
         <div class="item-list" style="padding: 20px; height: 410px; overflow-y: auto;">
             <div v-for="(item, index) in fileList" :key="index">
-                <p v-if="item.type == 'folder'">{{ index + 1 }}. {{ item.name }}</p>
-                <p v-if="item.type == 'file'">{{ index + 1 }}. {{ item.name }}
+                <p v-if="item.type == 'folder'" :class="CLASS_NAMES.textPrimary">{{ index + 1 }}. {{ item.name }}</p>
+                <p v-if="item.type == 'file'" :class="CLASS_NAMES.textPrimary">{{ index + 1 }}. {{ item.name }}
                     <el-button type="primary" :icon="Refresh" :loading="item.loading" circle size="small"
                         @click.stop="getFileUrl(item)" />
                 </p>
                 <p style="margin:10px 0px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
                     <el-link v-if="item.type == 'folder'" type="primary"
                         :href="resource ? '/drive/file/resource/' + item.file_id : 
-                        home ? '/drive/file/backup/' + item.file_id : '/s/' + shareTokenV.share_id + '/folder/' + item.file_id">点击进入文件夹</el-link>
+                        home ? '/drive/file/backup/' + item.file_id : '/s/' + shareTokenV.share_id + '/folder/' + item.file_id">
+                        <p :class="CLASS_NAMES.textPrimary">
+                        点击进入文件夹</p></el-link>
 
                     <el-link @mousedown="updateHref(item.file_id)" @mouseup="updateHref(item.file_id)"
                         v-if="item.type == 'file' && !item.error" :data-id="item.file_id" type="primary" :title='item.url'
-                        :href="item.url" >{{
+                        :href="item.url" ><p :class="CLASS_NAMES.textPrimary">{{
                             item.text
-                        }}</el-link>
+                        }}</p></el-link>
 
                     <el-link v-if="item.type == 'file' && item.error" type="danger" :href="item.url">{{
                         item.text

@@ -8,8 +8,9 @@ export default ()=>{
     http.onRequest(function(req){
 
         if (req.url.endsWith('/users/v1/users/device_logout')) {
-            deviceLogout()
-            console.log("sadasd")
+            deviceLogout().then((response) => {
+                console.log("用户退出")
+            })
         }
 
     })    

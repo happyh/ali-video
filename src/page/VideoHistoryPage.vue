@@ -39,6 +39,7 @@ function listFuction(data) {
 /** 清空本地历史 */
 function clearHistory(){
     user.clearVideoHistory()
+    locList.value = []
 }
 function playInfo(videoItem){
     if(videoItem.share){
@@ -48,7 +49,7 @@ function playInfo(videoItem){
 
     let vInfo = user.getVideoPage()
     vInfo.id=videoItem.id;
-
+    vInfo.drive_id=videoItem.drive_id;
     vInfo.play_cursor = videoItem.play_cursor;
     vInfo.name = videoItem.name;
     vInfo.thumbnail = "";
@@ -124,20 +125,21 @@ function playInfo(videoItem){
 
 let videoHistoryList = function (callback) {
     homeWidgets().then(res => {
-
+        let site = location.protocol + "//" + location.host + '/drive/file/backup/'
         if (res.data && res.data.recentUsed) {
             let videoList = res.data.recentUsed.items.filter(function (item, index) {
                 return item.category === 'video'
             })
             videoList = videoList.map((item) => {
-                let href = "https://www.aliyundrive.com/drive/"
+                let href = site
 
                 if (item.compilationId) {
 
                     let i = item.compilationId.indexOf('_');
                     let compilationId = item.compilationId.substring(i + 1, item.compilationId.length);
-                    href = 'https://www.aliyundrive.com/drive/folder/' + compilationId
+                    href += compilationId
                 }
+            
                 return {
                     "category": "video",
                     "name": item.name,
@@ -146,6 +148,7 @@ let videoHistoryList = function (callback) {
                     "folderName": item.fromSourceDescription,
                     "href": href,
                     "share": false,
+                    "drive_id":item.driveId,
                     "play_cursor": item.playCursor
                 }
             });

@@ -123,7 +123,7 @@ class User {
     }
 
     // 保存视频信息
-    saveVideoInfo(id,name,progress,folderName,href,share,play_cursor){
+    saveVideoInfo(id,name,progress,folderName,href,share,play_cursor,drive_id){
         let videoInfo = {
             "category": "video",
             "name": name,
@@ -132,8 +132,8 @@ class User {
             "folderName": folderName,
             "href": href,
             "share":share,
-            "play_cursor":play_cursor
-
+            "play_cursor":play_cursor,
+            "drive_id":drive_id
         }
 
         let list = store.getItem("historyVideo");

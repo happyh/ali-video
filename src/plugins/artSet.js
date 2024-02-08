@@ -109,7 +109,7 @@ function saveExit(){
                 folderName=v.folderName
             }
             //保存到本地
-            user.saveVideoInfo(v.id,v.name,progress,folderName,href,v.type==1,currentTime)
+            user.saveVideoInfo(v.id,v.name,progress,folderName,href,v.type==1,currentTime,v.drive_id)
 
 
 

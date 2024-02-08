@@ -56,6 +56,12 @@ class User {
 
         }
 
+        this.sessionData = {
+            authorization:'',
+            deviceId:'',
+            signature:'',
+        }
+
     }
 
     getVideoPage(){
@@ -145,6 +151,7 @@ class User {
 
     clearSession(){
         store.removeItem('LG_session')
+        store.removeItem('LG_session_1')
         store.removeItem('LG_session_Ref')
         store.removeItem('x-device-id')
         store.removeItem('x-signature')
@@ -251,7 +258,29 @@ class User {
         });
     }
 
-   session(token,callback){
+    sessionSet( authorization,deviceId,signature){
+        this.sessionData = {
+            authorization:authorization,
+            deviceId:deviceId,
+            signature:signature,
+        }
+        store.setItem('LG_session_1',this.sessionData)
+    }
+
+    GetSesion(){
+        let data=  this.sessionData;
+        if(data.authorization == ''){
+           let data1= store.getItem("LG_session_1")
+           if(data1 == ''){
+                return data
+           }
+           this.sessionData = data1;
+           return data1;
+        }
+        return data;
+    }
+
+    session(token,callback){
         if(token == null){
             showError('刷新Session失败,token为空,请刷新或重新登录')
             return {}

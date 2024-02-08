@@ -1,20 +1,17 @@
 import { http } from '../intercept'
+import user from '../../util/user'
 
-
-function handler(res) {
-    let data = res.data
-    let response = res.response
-    // console.log(res);
-
+function handler(headers) {
+    user.sessionSet(headers['Authorization'],headers['x-device-id'],headers['x-signature'])
 }
 
 export default ()=>{
 
     http.onRequest(function(req){
-        let config = res.config
-        console.log(config)
-        if (req.url.endsWith('users/device/create_session') || req.url.endsWith("/users/device/renew_session")) {
-            handler(response)
+        let fileId =  req.headers['fileId']
+
+        if (fileId==null && req.headers['x-device-id']!=null ) {
+            handler(req.headers)
         }
 
     })    

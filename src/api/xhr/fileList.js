@@ -59,6 +59,7 @@ function handler(res) {
 export default ()=>{
 
     http.onResponse(function(res,url){
+
         let config = res.config
 
         try {

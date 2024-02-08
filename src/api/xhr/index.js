@@ -13,5 +13,5 @@ export default ()=>{
     shareVideo()
     fileUpdate()
     logout()
-    // session()
+    session()
 }

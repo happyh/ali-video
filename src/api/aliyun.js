@@ -17,11 +17,7 @@ export const deviceLogout=()=>axios.post({
     method: 'post',
     url:'/users/v1/users/device_logout',
     data:{
-    },
-    headers:{
-        '_source': 'aliyun'
     }
-
 })
 
 export const homeWidgets=()=>axios.post('/apps/v1/users/home/widgets',{"context":{"recentUsed":{"limit":20},"recentSaved":{"limit":1}}})

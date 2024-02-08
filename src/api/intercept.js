@@ -44,7 +44,7 @@ function initXMLHttpRequest(http) {
             if (_this._header_) {
                 dataBody.headers = _this._header_
             }
-            if (_this._header_ && (_this._header_['fileId'] || _this._header_['_source'])) {
+            if (_this._header_ && (_this._header_['fileId'])) {
                 return send.apply(_this, data)
             }
 
@@ -64,7 +64,7 @@ function initXMLHttpRequest(http) {
                 }
                 // 请求后拦截
                 let res = this.response
-                if (_this._header_ && (_this._header_['fileId'] || _this._header_['_source'])) {
+                if (_this._header_ && (_this._header_['fileId'])) {
                     return
                 }
 
@@ -77,7 +77,7 @@ function initXMLHttpRequest(http) {
                 }
        
             
-                http.response({ config, response: res })
+                http.response({ config, response: res,header:_this._header_ })
             }
         }, false)
         return open.apply(this, args)

@@ -9,9 +9,24 @@ var sessionLoadding = false;
 var listenArray=new Array()
 
 
+// 用于重试请求的辅助函数
+function retryRequestWithNewCode(originalRequest) {
+     let session = user.GetSesion();
+    originalRequest.headers['Authorization'] = session.authorization;
+    originalRequest.headers['X-Device-Id'] = session.deviceId;
+    originalRequest.headers['X-Signature'] = session.signature;
+    originalRequest.retry = true;
+    return axios(originalRequest);
+  }
+
+
 // 添加请求拦截器
 let interceptRequest = function(){
     axios.interceptors.request.use(async function (config) {
+        if(config.retry){
+            return config;
+        }
+
         let token = user.getToken()
         if(token==null){
             showError("当前登录凭证获取为空，请刷新或重新登录");
@@ -90,6 +105,13 @@ let interceptRequest = function(){
         return response;
       }, function (error) {
         let repsonse = error.response
+
+        if(repsonse && (repsonse.status==401 || repsonse.status==400)){
+            if(user.GetSesion().deviceId != ''){
+                user.removeSession()
+                return  retryRequestWithNewCode(error.config)
+            }
+        }
 
         if(repsonse && repsonse.status==401 && repsonse.data.code == "UserDeviceOffline"){
             user.clearSession()

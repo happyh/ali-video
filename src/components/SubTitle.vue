@@ -117,7 +117,7 @@ function toUrlFile() {
         return;
     }
 
-    var regex = /backup\/(.+?)(?:\/|\?|$)/;
+    var regex = /(backup|resource)\/(.+?)(?:\/|\?|$)/;
     var match = link.match(regex);
     if (match) {
         var value = match[1];
@@ -161,14 +161,14 @@ defineExpose({
 
 
         <div class="bread-container--xuGOj">
-            <div class="breadcrumb-wrap--Uq5Lb" data-align="left">
+            <div class="breadcrumb-wrap--Uq5Lb" data-align="left" style=" overflow-x: auto; ">
                 <div class="breadcrumb--gnRPG" data-calc="true">
                     <div v-for="(item, index) in path" :key="index" class="breadcrumb-item--j8J5H" :data-label="item.name"
                         @click.stop="getFileList(item.id, item.name)" :data-key="item.id" data-hide="false"
                         data-more="false">
-                        <div class="breadcrumb-item-link--9zcQY" data-spm-anchor-id="0.0.0.i5.54a06c75zaT9h6">{{ item.name
+                        <div class="breadcrumb-item-link--9zcQY" style="color: #409eff;" data-spm-anchor-id="0.0.0.i5.54a06c75zaT9h6">{{ item.name
                         }}</div>
-                        <div class="breadcrumb-item-separator--MnbFV">›</div>
+                        <div class="breadcrumb-item-separator--MnbFV" style="color: #409eff;">›</div>
                     </div>
 
                 </div>

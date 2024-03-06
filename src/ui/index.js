@@ -29,14 +29,14 @@ function initHomeUi(){
         })
         
         // 如果从收藏夹里面点击，则会触发该方法
-        setInterval(function(){
-            let node = $(".is-active--8atYr:eq(0)");
-            if(node.length>0){
-                if(node.text()!==globalMenuName){
-                    showHomeUi(node.text()) 
-                }
-            }
-        },700); 
+        // setInterval(function(){
+        //     let node = $(".is-active--8atYr:eq(0)");
+        //     if(node.length>0){
+        //         if(node.text()!==globalMenuName){
+        //             showHomeUi(node.text()) 
+        //         }
+        //     }
+        // },700); 
         setTimeout(function(){
             let node = $(".is-active--8atYr:eq(0)");
             if(node.length>0){

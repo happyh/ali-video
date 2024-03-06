@@ -4,6 +4,8 @@ import { createApp } from 'vue';
 import DwoloadPage from '../page/DwoloadPage.vue'
 import user from '../util/user';
 import { CLASS_NAMES } from './style'
+import { ElMessageBox } from 'element-plus'
+
 
 let shareId = function () {
     var url = location.href
@@ -14,16 +16,23 @@ let shareId = function () {
 
 let showDownloadSharePage = function () {
 
-    let shareToken = user.getShareToken();
-    if (!user.isExpires(shareToken)) {
-        showError("当前页面已过期，请刷新重试")
-        return
-    }else if(shareId() != shareToken.share_id){
-        location.reload();
-        return
-    }
-      let app =  createApp(DwoloadPage)
-      showShareDiv("文件下载",app)
+    ElMessageBox.alert("很抱歉，当前官方暂时已下线该功能，如需下载，请先保存后在自己的网盘中获取直链。", {
+        confirmButtonText: '确定'
+    })
+
+    /**
+     * 
+        let shareToken = user.getShareToken();
+        if (!user.isExpires(shareToken)) {
+            showError("当前页面已过期，请刷新重试")
+            return
+        }else if(shareId() != shareToken.share_id){
+            location.reload();
+            return
+        }
+        let app =  createApp(DwoloadPage)
+        showShareDiv("文件下载",app)
+      */
   }
 
 

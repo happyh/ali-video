@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         阿广的阿里云盘助手
 // @namespace    http://tampermonkey.net/
-// @version      2.1.8
+// @version      2.1.10
 // @author       罗根大人
 // @description  支持生成文件下载链接、修改文件后缀,支持第三方播放器Artplayer(突破视频2分钟限制,长按倍速,选集,历史播放)
 // @license      MIT
@@ -24081,7 +24081,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       return;
     }
     apiConfig();
-    console.log(`${"\n"} %c ali.video.user.js v${"2.1.8"} 罗根大人 %c https://greasyfork.org/zh-CN/scripts/458626  ${"\n"}${"\n"}`, "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
+    console.log(`${"\n"} %c ali.video.user.js v${"2.1.10"} 罗根大人 %c https://greasyfork.org/zh-CN/scripts/458626  ${"\n"}${"\n"}`, "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
     if (user.isConfigSession() == false) {
       let app = vue.createApp(ConfigSessionDialog);
       app.mount(

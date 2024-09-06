@@ -124,18 +124,17 @@ function showSet() {
 
 
 function IDMPush() {
-    var protocol = window.location.protocol; 
+    var protocol = window.location.protocol;
     var host = window.location.host;
-    var fullHost = protocol + '//' + host+"/";
-    var content = "", referer = fullHost, userAgent = navigator.userAgent;
-    fileList.forEach(function (item, index) {
-        if (item.url != '' && item.url != null) {
-            content += ["<", item.url, "referer: " + referer, "User-Agent: " + userAgent, ">"].join("\r\n") + "\r\n";
+    var fullHost = protocol + "//" + host + "/";
+    var referer = fullHost, userAgent = navigator.userAgent;
+    var content = "--noscreen " + "-r " + referer;
+    fileList2.forEach(function(item, index) {
+        if (item.url != "" && item.url != null) {
+            content += " " + item.url;
         }
-
     });
-
-    downloadLink(content,"IDM导出文件_阿里云盘.ef2")
+    downloadLink(content, "tasks.txt");
 }
 
 

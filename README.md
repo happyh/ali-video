@@ -48,5 +48,12 @@ https://greasyfork.org/zh-CN/scripts/458626
 
 2. 需要修改后缀文件名时，只需要在后面加入需要更改的后缀即可，文件名是 xxx， 我要改他的后缀就这样： xxx.txt  这样他的后缀就改成了txt
 
+## 编译方式：
+#安装需要的modules
+pnpm install 
+#编码打包
+pnpm run build
+
 ---
 > 需要其他功能，请反馈
+

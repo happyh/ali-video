@@ -12,7 +12,7 @@ export default defineConfig({
     monkey({
       entry: 'src/main.js',
       userscript: {
-        name: "阿里云盘助手",
+        name: "阿广的阿里云盘助手",
         version: loadEnv("", process.cwd(), '').VITE_VERSION,
         license:'MIT',
         description:'支持生成文件下载链接、修改文件后缀,支持第三方播放器Artplayer(突破视频2分钟限制,长按倍速,选集,历史播放)',
@@ -29,7 +29,7 @@ export default defineConfig({
                     })),
           jquery: cdn.bootcdn('$','jquery.min.js'),
           axios: cdn.bootcdn('axios','axios.min.js'),
-          'hls.js/dist/hls.min':cdn.bootcdn("Hls",'hls.min.js'),
+          'hls.js/dist/hls.min.js':cdn.bootcdn("Hls",'hls.min.js'),
           artplayer: cdn.bootcdn('Artplayer','artplayer.min.js'),
           'element-plus':  cdn.bootcdn('ElementPlus', 'index.full.min.js')
         },

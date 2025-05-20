@@ -19,7 +19,7 @@
 // @grant        unsafeWindow
 // ==/UserScript==
 
-(t=>{const e=document.createElement("style");e.dataset.source="vite-plugin-monkey",e.innerText=t,document.head.appendChild(e)})(" .icon-wrapper--3dbbo[data-v-4bef4f78]{height:28px;width:28px;display:-ms-flexbox;display:flex;border-radius:5px;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;color:var(--context_secondary);position:absolute;top:18px;right:16px;-webkit-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease;cursor:pointer;z-index:10}.notice2[data-v-4bef4f78]{margin:2px 0 0;color:red;font-size:8pt}.close-icon--33bP0[data-v-4bef4f78]{font-size:18px}.icon--d-ejA[data-v-4bef4f78]{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center}.content-wrapper--1_WJv[data-v-4bef4f78]{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center}.notice[data-v-ff5973d9]{color:#6592f9;font-size:10pt}.notice1[data-v-ff5973d9]{margin:2px 0 0;color:#e6a23c;font-size:8pt}.notice2[data-v-ff5973d9]{margin:2px 0 0;color:red;font-size:8pt}.footer[data-v-ff5973d9]{height:68px;background:var(--background_secondary_blur);-webkit-backdrop-filter:blur(30px);backdrop-filter:blur(30px);margin:-20px;padding:0 20px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;border-radius:0 0 10px 10px}.notice1[data-v-8cb6b90e]{margin:2px 0 0;color:#e6a23c;font-size:8pt}.breadcrumb-item--tV9dn[data-v-8cb6b90e]{font-size:12px}.td--SGrZj[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-negative:0;flex-shrink:0;height:52px;position:relative}.td---v-kp[data-v-8cb6b90e]{position:relative;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-negative:0;flex-shrink:0;padding:0 24px}.cover--Mn1Bt[data-v-8cb6b90e]{margin-right:20px}.folder-cover--ExDmp[data-v-8cb6b90e]{position:relative;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;-ms-flex-negative:0;flex-shrink:0;-ms-flex-positive:0;flex-grow:0}.folder-cover--ExDmp[data-size=XXS][data-v-8cb6b90e],.folder-cover--ExDmp[data-size=XXS] .fileicon--Ob-Oj[data-v-8cb6b90e]{width:28px;height:28px}.fileicon---webs[data-v-8cb6b90e]{max-width:100%;max-height:100%}.breadcrumb-wrap--Uq5Lb[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;font-size:16px;line-height:1.4;width:100%;overflow:hidden;position:relative}.breadcrumb-wrap--Uq5Lb[data-align=left][data-v-8cb6b90e]{-ms-flex-pack:start;justify-content:flex-start}.breadcrumb-wrap--Uq5Lb .breadcrumb--gnRPG[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;min-width:24px}.breadcrumb-item--j8J5H[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;white-space:nowrap;color:var(--context_tertiary);cursor:pointer}.breadcrumb-item--j8J5H:first-child .breadcrumb-item-link--9zcQY[data-v-8cb6b90e]{font-weight:500}.breadcrumb-item--j8J5H .breadcrumb-item-link--9zcQY[data-v-8cb6b90e]{font-weight:400;line-height:1.4;-webkit-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease}.breadcrumb-item--j8J5H .breadcrumb-item-separator--MnbFV[data-v-8cb6b90e]{line-height:1.4;margin:0 8px}.card[data-v-152c05f8]{margin-bottom:10px}.player[data-v-d648fbfe]{display:flex;height:100%;align-items:center;justify-content:center;flex-direction:column}.notice[data-v-f4968c85]{color:#6592f9;font-size:8pt}.notice2[data-v-f4968c85]{color:red;font-size:8pt}.notice[data-v-62c7214b]{color:#6592f9;font-size:10pt}.notice1[data-v-62c7214b]{margin:2px 0 0;color:#e6a23c;font-size:8pt}.notice2[data-v-62c7214b]{margin:2px 0 0;color:red;font-size:8pt}.footer[data-v-62c7214b]{height:68px;background:var(--background_secondary_blur);-webkit-backdrop-filter:blur(30px);backdrop-filter:blur(30px);margin:-20px;padding:0 20px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;border-radius:0 0 10px 10px} ");
+(t=>{const e=document.createElement("style");e.dataset.source="vite-plugin-monkey",e.innerText=t,document.head.appendChild(e)})(" .icon-wrapper--3dbbo[data-v-4bef4f78]{height:28px;width:28px;display:-ms-flexbox;display:flex;border-radius:5px;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;color:var(--context_secondary);position:absolute;top:18px;right:16px;-webkit-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease;cursor:pointer;z-index:10}.notice2[data-v-4bef4f78]{margin:2px 0 0;color:red;font-size:8pt}.close-icon--33bP0[data-v-4bef4f78]{font-size:18px}.icon--d-ejA[data-v-4bef4f78]{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;text-align:center}.content-wrapper--1_WJv[data-v-4bef4f78]{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center}.notice[data-v-cb8cb3cb]{color:#6592f9;font-size:10pt}.notice1[data-v-cb8cb3cb]{margin:2px 0 0;color:#e6a23c;font-size:8pt}.notice2[data-v-cb8cb3cb]{margin:2px 0 0;color:red;font-size:8pt}.footer[data-v-cb8cb3cb]{height:68px;background:var(--background_secondary_blur);-webkit-backdrop-filter:blur(30px);backdrop-filter:blur(30px);margin:-20px;padding:0 20px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;border-radius:0 0 10px 10px}.notice1[data-v-8cb6b90e]{margin:2px 0 0;color:#e6a23c;font-size:8pt}.breadcrumb-item--tV9dn[data-v-8cb6b90e]{font-size:12px}.td--SGrZj[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-negative:0;flex-shrink:0;height:52px;position:relative}.td---v-kp[data-v-8cb6b90e]{position:relative;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-negative:0;flex-shrink:0;padding:0 24px}.cover--Mn1Bt[data-v-8cb6b90e]{margin-right:20px}.folder-cover--ExDmp[data-v-8cb6b90e]{position:relative;display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;-ms-flex-align:center;align-items:center;-ms-flex-negative:0;flex-shrink:0;-ms-flex-positive:0;flex-grow:0}.folder-cover--ExDmp[data-size=XXS][data-v-8cb6b90e],.folder-cover--ExDmp[data-size=XXS] .fileicon--Ob-Oj[data-v-8cb6b90e]{width:28px;height:28px}.fileicon---webs[data-v-8cb6b90e]{max-width:100%;max-height:100%}.breadcrumb-wrap--Uq5Lb[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;font-size:16px;line-height:1.4;width:100%;overflow:hidden;position:relative}.breadcrumb-wrap--Uq5Lb[data-align=left][data-v-8cb6b90e]{-ms-flex-pack:start;justify-content:flex-start}.breadcrumb-wrap--Uq5Lb .breadcrumb--gnRPG[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;min-width:24px}.breadcrumb-item--j8J5H[data-v-8cb6b90e]{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;white-space:nowrap;color:var(--context_tertiary);cursor:pointer}.breadcrumb-item--j8J5H:first-child .breadcrumb-item-link--9zcQY[data-v-8cb6b90e]{font-weight:500}.breadcrumb-item--j8J5H .breadcrumb-item-link--9zcQY[data-v-8cb6b90e]{font-weight:400;line-height:1.4;-webkit-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease}.breadcrumb-item--j8J5H .breadcrumb-item-separator--MnbFV[data-v-8cb6b90e]{line-height:1.4;margin:0 8px}.card[data-v-152c05f8]{margin-bottom:10px}.player[data-v-d648fbfe]{display:flex;height:100%;align-items:center;justify-content:center;flex-direction:column}.notice[data-v-f4968c85]{color:#6592f9;font-size:8pt}.notice2[data-v-f4968c85]{color:red;font-size:8pt}.notice[data-v-62c7214b]{color:#6592f9;font-size:10pt}.notice1[data-v-62c7214b]{margin:2px 0 0;color:#e6a23c;font-size:8pt}.notice2[data-v-62c7214b]{margin:2px 0 0;color:red;font-size:8pt}.footer[data-v-62c7214b]{height:68px;background:var(--background_secondary_blur);-webkit-backdrop-filter:blur(30px);backdrop-filter:blur(30px);margin:-20px;padding:0 20px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;border-radius:0 0 10px 10px} ");
 
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -517,18 +517,18 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
     }
     // 获取当前页面上所有的文件
     getAllFileList() {
-      let fileList3 = this.getPage().items;
-      if (fileList3.length === 0) {
+      let fileList2 = this.getPage().items;
+      if (fileList2.length === 0) {
         console.error("获取文件列表失败");
         return [];
       }
-      return copy(fileList3);
+      return copy(fileList2);
     }
     // 获取已选择的文件
     selectedFileList() {
       let jq = $2;
-      let selectedFileList = [], fileList3 = this.getAllFileList();
-      if (fileList3.length === 0) {
+      let selectedFileList = [], fileList2 = this.getAllFileList();
+      if (fileList2.length === 0) {
         console.error("获取文件列表失败");
         return [];
       }
@@ -542,7 +542,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
         var $this = jq(node[index]);
         if ($this.attr("data-is-selected") === "true") {
           let data_index = $this.closest("[data-index]").attr("data-index");
-          data_index && selectedFileList.push(fileList3[data_index]);
+          data_index && selectedFileList.push(fileList2[data_index]);
         }
       });
       return copy(selectedFileList);
@@ -653,7 +653,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
           }
         });
       }
-      function aria2Push(fileList3, call) {
+      function aria2Push(fileList2, call) {
         if (data.pushBtonText == "正在推送") {
           return;
         }
@@ -666,7 +666,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
           }
         }
         let sendDownLoad = [];
-        fileList3.forEach(function(item, index) {
+        fileList2.forEach(function(item, index) {
           sendDownLoad.push({
             id: "",
             jsonrpc: "2.0",
@@ -861,7 +861,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
         return item.type === "folder" || item.type === "file";
       });
       console.log(list);
-      const fileList3 = vue.reactive(list);
+      const fileList2 = vue.reactive(list);
       const aria2SetRef = vue.ref();
       const data = vue.reactive({
         pushBtonText: "Aria2 推送"
@@ -904,7 +904,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
             return;
           }
         }
-        var groupedCountries = group(fileList3, 1);
+        var groupedCountries = group(fileList2, 1);
         for (const index in groupedCountries) {
           await loadingUrl(groupedCountries[index]);
         }
@@ -952,7 +952,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
         }
         var text = data.pushBtonText;
         data.pushBtonText = "正在推送";
-        aria2SetRef.value.aria2Push(fileList3, (res) => {
+        aria2SetRef.value.aria2Push(fileList2, (res) => {
           if (res == false) {
             data.pushBtonText = "推送失败";
           } else {
@@ -1075,15 +1075,15 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
             })
           ])) : vue.createCommentVNode("", true),
           !laterLoad.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$3, [
-            fileList3.length > 0 ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_3$3, _cache[2] || (_cache[2] = [
+            fileList2.length > 0 ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_3$3, _cache[2] || (_cache[2] = [
               vue.createElementVNode("p", { class: "notice2" }, "注意： 如果大批量获取下载地址，会被官网限速！", -1),
               vue.createElementVNode("p", { class: "notice1" }, "1. 因阿里云盘接口限制,短期大量请求会出现接口请求频繁,可以先选择需要下载的文件，在点击显示链接按钮。 ", -1),
               vue.createElementVNode("p", { class: "notice1" }, "2. 接口请求频繁,也可尝试点击下载,不过文件名需要重新命名 ", -1),
               vue.createElementVNode("p", { class: "notice1" }, "3. 在点击刷新按钮时,不要连续点击,可等几秒在点一次尝试获取 ", -1)
             ]))) : vue.createCommentVNode("", true),
-            vue.createElementVNode("p", _hoisted_4$2, " 共加载了" + vue.toDisplayString(fileList3.length) + "个文件", 1),
+            vue.createElementVNode("p", _hoisted_4$2, " 共加载了" + vue.toDisplayString(fileList2.length) + "个文件", 1),
             vue.createElementVNode("div", _hoisted_5$2, [
-              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(fileList3, (item, index) => {
+              (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(fileList2, (item, index) => {
                 return vue.openBlock(), vue.createElementBlock("div", { key: index }, [
                   item.type == "folder" ? (vue.openBlock(), vue.createElementBlock("p", {
                     key: 0,
@@ -1228,7 +1228,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       };
     }
   };
-  const DwoloadPage = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-ff5973d9"]]);
+  const DwoloadPage = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-cb8cb3cb"]]);
   var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
   function getDefaultExportFromCjs(x) {
     return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -11074,9 +11074,9 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       return (art) => {
       };
     }
-    let fileList3 = items;
+    let fileList2 = items;
     let id = user.getVideoPage().id;
-    var videoList = fileList3.filter(function(item, index) {
+    var videoList = fileList2.filter(function(item, index) {
       return item.category === "video";
     }), fileIndex = videoList.findIndex(function(item, index) {
       return item.file_id === id;

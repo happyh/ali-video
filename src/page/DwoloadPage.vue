@@ -129,7 +129,7 @@ function IDMPush() {
     var fullHost = protocol + "//" + host + "/";
     var referer = fullHost, userAgent = navigator.userAgent;
     var content = "--noscreen " + "-r " + referer;
-    fileList2.forEach(function(item, index) {
+    fileList.forEach(function(item, index) {
         if (item.url != "" && item.url != null) {
             content += " " + item.url;
         }

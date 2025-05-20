@@ -57,3 +57,6 @@ pnpm install
 
 pnpm run build
 
+3. 测试验证安装
+
+pnpm run preview

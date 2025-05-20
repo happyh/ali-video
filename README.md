@@ -60,3 +60,8 @@ pnpm run build
 3. 测试验证安装
 
 pnpm run preview
+
+4. 调试
+pnpm run dev
+
+这样在油猴中添加一个新的用户脚本，指向本地开发服务器地址，然后通过F12进行调试。

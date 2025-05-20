@@ -134,7 +134,8 @@ function IDMPush() {
             content += " " + item.url;
         }
     });
-    downloadLink(content, "tasks.txt");
+    const randomStr = Math.random().toString(36).slice(2, 8); // 6位随机字母数字
+    downloadLink(content, `tasks_${randomStr}.txt`);
 }
 
 
